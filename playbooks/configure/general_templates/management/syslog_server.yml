@@ -1,0 +1,6 @@
+---
+- name: Configure Syslog Servers
+  aireos_config:
+    lines:
+      - logging syslog host {{ cw_pi }}
+      - logging syslog host {{ kdc_pi }}

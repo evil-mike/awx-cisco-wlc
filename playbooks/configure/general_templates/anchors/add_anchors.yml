@@ -1,0 +1,14 @@
+---
+- name: Configure Anchors to WLANs
+  aireos_config:
+    lines:
+      - wlan mobility anchor add {{ item.value[0] }}
+      - wlan mobility anchor add {{ item.value[1] }}
+    before:
+      - wlan disable all
+    after:
+      - wlan enable all
+  with_dict: "{{ all_anchors }}"
+  when: 'item.key in anchors'
+  loop_control:
+    label: "{{ item.key }}"

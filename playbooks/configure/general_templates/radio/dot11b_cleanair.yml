@@ -1,0 +1,31 @@
+---
+- name: Configure CleanAir for 802.11b
+  aireos_config:
+    lines:
+      - 802.11b cleanair enable network
+      - 802.11b cleanair device enable ble-beacon
+      - 802.11b cleanair alarm device enable bt-link
+      - 802.11b cleanair alarm device enable mw-oven
+      - 802.11b cleanair alarm device enable 802.11-fh
+      - 802.11b cleanair alarm device enable bt-discovery
+      - 802.11b cleanair alarm device enable tdd-tx
+      - 802.11b cleanair alarm device enable cont-tx
+      - 802.11b cleanair alarm device enable dect-like
+      - 802.11b cleanair alarm device enable video
+      - 802.11b cleanair alarm device enable 802.15.4
+      - 802.11b cleanair alarm device enable WiFi
+      - 802.11b cleanair alarm device enable superag
+      - 802.11b cleanair alarm device enable canopy
+      - 802.11b cleanair alarm device enable msft-xbox
+      - 802.11b cleanair alarm device enable wimax-mobile
+      - 802.11b cleanair alarm device enable wimax-fixed
+      - 802.11b cleanair alarm device enable ble-beacon
+      - 802.11b cleanair alarm unclassified threshold 1
+      - 802.11b cleanair enable network
+      - 802.11b cleanair device reporting enable
+      - 802.11b cleanair alarm air-quality enable
+      - 802.11b cleanair alarm air-quality threshold 35
+      - 802.11b cleanair alarm unclassified disable
+      - 802.11b cleanair alarm unclassified threshold 1
+      - 802.11b cleanair alarm device reporting enable
+

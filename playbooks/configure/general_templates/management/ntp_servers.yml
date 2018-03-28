@@ -1,0 +1,6 @@
+---
+- name: Configure NTP Servers
+  aireos_config:
+    lines:
+      - time ntp server 1 {{ primary_ntp }}
+      - time ntp server 2 {{ backup_ntp }}

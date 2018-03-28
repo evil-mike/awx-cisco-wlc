@@ -1,0 +1,5 @@
+---
+- name: Configure CLI Prompt
+  aireos_config:
+    lines:
+      - prompt {{ name }}

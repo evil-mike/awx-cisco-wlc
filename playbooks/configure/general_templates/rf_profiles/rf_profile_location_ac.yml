@@ -1,0 +1,41 @@
+---
+- name: Configure RF-Profile Location-AC
+  aireos_config:
+    lines:
+      - rf-profile create 802.11a Location-AC
+      - rf-profile channel add 36 Location-AC
+      - rf-profile channel add 40 Location-AC
+      - rf-profile channel add 44 Location-AC
+      - rf-profile channel add 48 Location-AC
+      - rf-profile channel add 52 Location-AC
+      - rf-profile channel add 56 Location-AC
+      - rf-profile channel add 60 Location-AC
+      - rf-profile channel add 64 Location-AC
+      - rf-profile channel delete 100 Location-AC
+      - rf-profile channel delete 104 Location-AC
+      - rf-profile channel delete 108 Location-AC
+      - rf-profile channel delete 112 Location-AC
+      - rf-profile channel delete 116 Location-AC
+      - rf-profile channel delete 120 Location-AC
+      - rf-profile channel delete 124 Location-AC
+      - rf-profile channel delete 128 Location-AC
+      - rf-profile channel delete 132 Location-AC
+      - rf-profile channel delete 136 Location-AC
+      - rf-profile channel delete 140 Location-AC
+      - rf-profile channel delete 144 Location-AC
+      - rf-profile channel add 149 Location-AC
+      - rf-profile channel add 153 Location-AC
+      - rf-profile channel add 157 Location-AC
+      - rf-profile channel add 161 Location-AC
+      - rf-profile channel chan-width 40 Location-AC
+      - rf-profile tx-power-min 11 Location-AC
+      - rf-profile data-rates 802.11a disabled 6 Location-AC
+      - rf-profile data-rates 802.11a disabled 9 Location-AC
+      - rf-profile data-rates 802.11a disabled 12 Location-AC
+      - rf-profile data-rates 802.11a disabled 18 Location-AC
+      - rf-profile data-rates 802.11a mandatory 24 Location-AC
+      - rf-profile data-rates 802.11a supported 36 Location-AC
+      - rf-profile data-rates 802.11a supported 48 Location-AC
+      - rf-profile data-rates 802.11a supported 54 Location-AC
+      - rf-profile coverage voice -75 Location-AC
+      - rf-profile tx-power-max 14 Location-AC

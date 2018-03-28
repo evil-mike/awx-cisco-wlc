@@ -1,0 +1,6 @@
+---
+- name: Configure DHCP Bridge Mode
+  aireos_config:
+    lines:
+      - dhcp proxy disable
+      - dhcp timeout 5

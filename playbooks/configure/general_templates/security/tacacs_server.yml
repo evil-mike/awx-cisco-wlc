@@ -1,0 +1,15 @@
+---
+- name: Configure TACACS Server
+  aireos_config:
+    lines:
+      - tacacs auth add 1 {{ cw_tacacs }} 49 ascii {{ tacacs_key }}
+      - tacacs auth disable 1
+      - tacacs auth add 1 E 49 ascii E
+      - tacacs auth add 1 E 0 ascii {{ tacacs_key }}
+      - tacacs auth enable 1
+      - tacacs acct add 1 {{ cw_tacacs }} 49 ascii {{ tacacs_key }}
+      - tacacs acct disable 1
+      - tacacs acct add 1 E 49 ascii E
+      - tacacs acct add 1 {{ cw_tacacs }} 0 ascii {{ tacacs_key }}
+      - tacacs acct add 1 E 0 ascii {{ tacacs_key }}
+      - tacacs acct enable 1

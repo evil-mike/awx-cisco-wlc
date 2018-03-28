@@ -1,0 +1,15 @@
+---
+- name: Configure Dynamic Interfaces
+  aireos_config:
+    lines:
+      - interface create {{ item.value.interface }} {{ item.value.vlan }}
+      - interface address dynamic-interface {{ item.value.interface }} {{ item.value.ip }} {{ item.value.mask }} {{ item.value.gateway }}
+      - interface vlan {{ item.value.interface }} {{ item.value.vlan }}
+    before: 
+      - wlan disable all
+      - interface address virtual {{ virtual_ip }}
+    after:
+      - wlan enable all
+  with_dict: "{{ dynamic_interfaces }}"
+  loop_control:
+    label: "{{ item.value.interface }}"

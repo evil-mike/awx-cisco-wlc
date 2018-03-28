@@ -1,0 +1,9 @@
+---
+- name: Configure Netflow Exporter and Monitor
+  aireos_config:
+    lines: 
+      - flow create exporter {{ pi_name }} {{ cw_pi }} port 9991
+      - 'flow create monitor "Netflow Monitor {{ pi_name }}"'
+      - 'flow add monitor "Netflow Monitor {{ pi_name }}" exporter {{ pi_name }}'
+      - 'flow add monitor "Netflow Monitor {{ pi_name }}" record ipv4_client_app_flow_record'
+

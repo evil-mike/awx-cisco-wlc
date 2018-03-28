@@ -1,0 +1,5 @@
+---
+- name: Configure Timezone Level
+  aireos_config:
+    lines:
+      - time timezone location 5

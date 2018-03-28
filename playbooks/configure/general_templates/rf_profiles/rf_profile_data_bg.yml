@@ -1,0 +1,24 @@
+---
+- name: Configure RF-Profile Data-BG
+  aireos_config:
+    lines:
+      - rf-profile create 802.11b Data-BG
+      - rf-profile channel add 1 Data-BG
+      - rf-profile channel add 6 Data-BG
+      - rf-profile channel add 11 Data-BG
+      - rf-profile channel chan-width 20 Data-BG
+      - rf-profile tx-power-min 8 Data-BG
+      - rf-profile data-rates 802.11b disabled 1 Data-BG
+      - rf-profile data-rates 802.11b disabled 2 Data-BG
+      - rf-profile data-rates 802.11b disabled 5.5 Data-BG
+      - rf-profile data-rates 802.11b mandatory 11 Data-BG
+      - rf-profile data-rates 802.11b disabled 6 Data-BG
+      - rf-profile data-rates 802.11b disabled 9 Data-BG
+      - rf-profile data-rates 802.11b supported 12 Data-BG
+      - rf-profile data-rates 802.11b supported 18 Data-BG
+      - rf-profile data-rates 802.11b supported 24 Data-BG
+      - rf-profile data-rates 802.11b supported 36 Data-BG
+      - rf-profile data-rates 802.11b supported 48 Data-BG
+      - rf-profile data-rates 802.11b supported 54 Data-BG
+      - rf-profile coverage voice -75 Data-BG
+      - rf-profile tx-power-max 14 Data-BG

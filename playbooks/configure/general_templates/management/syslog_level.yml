@@ -1,0 +1,5 @@
+---
+- name: Configure Syslog Level
+  aireos_config:
+    lines: 
+      - logging syslog level 6

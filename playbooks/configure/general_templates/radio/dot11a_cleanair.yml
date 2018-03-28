@@ -1,0 +1,27 @@
+---
+- name: Configure CleanAir for 802.11a
+  aireos_config:
+    lines:
+      - 802.11a cleanair enable network
+      - 802.11a cleanair alarm device enable tdd-tx
+      - 802.11a cleanair alarm device enable cont-tx
+      - 802.11a cleanair alarm device enable dect-like
+      - 802.11a cleanair alarm device enable video
+      - 802.11a cleanair alarm device enable WiFi
+      - 802.11a cleanair alarm device enable superag
+      - 802.11a cleanair alarm device enable canopy
+      - 802.11a cleanair alarm device enable wimax-mobile
+      - 802.11a cleanair alarm device enable wimax-fixed
+      - 802.11a cleanair alarm unclassified threshold 1
+      - advanced 802.11a channel cleanair-event enable
+      - advanced 802.11a channel cleanair-event rogue-contribution disable
+      - 802.11a cleanair enable network
+      - 802.11a cleanair device reporting enable
+      - 802.11a cleanair alarm air-quality enable
+      - 802.11a cleanair alarm air-quality threshold 35
+      - 802.11a cleanair alarm unclassified disable
+      - 802.11a cleanair alarm unclassified threshold 1
+      - 802.11a cleanair alarm device reporting enable
+
+
+

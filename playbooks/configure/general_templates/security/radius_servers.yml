@@ -1,0 +1,25 @@
+---
+- name: Configure Radius (ISE-003) Servers
+  aireos_config:
+    lines:
+      - radius auth add 1 {{ cw_ise_003 }} 1812 ascii {{ radius_key }}
+      - radius auth disable 1
+      - radius auth rfc3576 enable 1
+      - radius auth network 1 enable
+      - radius auth management 1 disable
+      - radius auth enable 1
+      - radius acct add 1 {{ cw_ise_003 }} 1813 ascii {{ radius_key }}
+      - radius acct network 1 enable
+      - radius acct disable 1
+      - radius acct enable 1
+      - radius auth add 2 {{ kdc_ise_003 }} 1812 ascii {{ radius_key }}
+      - radius auth disable 2
+      - radius auth rfc3576 enable 2
+      - radius auth network 2 enable
+      - radius auth management 2 disable
+      - radius auth enable 2
+      - radius acct add 2 {{ kdc_ise_003 }} 1813 ascii {{ radius_key }}
+      - radius acct network 2 enable
+      - radius acct disable 2
+      - radius acct enable 2
+

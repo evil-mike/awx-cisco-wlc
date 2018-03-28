@@ -1,0 +1,13 @@
+---
+- name: Configure WLAN Interface Mappings
+  aireos_config:
+    lines:
+      - wlan interface {{ item }}
+    before: 
+      - wlan disable all
+      - interface address virtual {{ virtual_ip }}
+    after:
+      - wlan enable all
+  with_items: "{{ wlan_interface_mappings }}"
+  loop_control:
+    label: "{{ item }}"

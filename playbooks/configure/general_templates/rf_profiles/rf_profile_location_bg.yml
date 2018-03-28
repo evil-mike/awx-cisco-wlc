@@ -1,0 +1,24 @@
+---
+- name: Configure RF-Profile Location-BG
+  aireos_config:
+    lines:
+      - rf-profile create 802.11b Location-BG
+      - rf-profile channel add 1 Location-BG
+      - rf-profile channel add 6 Location-BG
+      - rf-profile channel add 11 Location-BG
+      - rf-profile channel chan-width 20 Location-BG
+      - rf-profile tx-power-min 8 Location-BG
+      - rf-profile data-rates 802.11b disabled 1 Location-BG
+      - rf-profile data-rates 802.11b disabled 2 Location-BG
+      - rf-profile data-rates 802.11b disabled 5.5 Location-BG
+      - rf-profile data-rates 802.11b mandatory 11 Location-BG
+      - rf-profile data-rates 802.11b disabled 6 Location-BG
+      - rf-profile data-rates 802.11b disabled 9 Location-BG
+      - rf-profile data-rates 802.11b supported 12 Location-BG
+      - rf-profile data-rates 802.11b supported 18 Location-BG
+      - rf-profile data-rates 802.11b supported 24 Location-BG
+      - rf-profile data-rates 802.11b supported 36 Location-BG
+      - rf-profile data-rates 802.11b supported 48 Location-BG
+      - rf-profile data-rates 802.11b supported 54 Location-BG
+      - rf-profile coverage voice -75 Location-BG
+      - rf-profile tx-power-max 11 Location-BG

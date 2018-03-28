@@ -1,0 +1,15 @@
+---
+- name: Configure RRM for 802.11b (Advanced Global)
+  aireos_config:
+    lines:
+      - 802.11b enable network
+      - 802.11b channel cleanair-event enable
+      - 802.11b channel foreign enable
+      - 802.11b channel load disable
+      - 802.11b channel noise enable
+      - 802.11b channel device disable
+      - 802.11b channel dca sensitivity 1
+      - 802.11b channel dca anchor-time 0
+      - 802.11b channel dca interval 0
+      - 802.11b channel cleanair-event enable
+      - 802.11b channel cleanair-event sensitivity Medium

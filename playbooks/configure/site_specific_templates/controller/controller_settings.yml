@@ -1,0 +1,18 @@
+---
+- name: Configure Controller Settings
+  aireos_config:
+    lines:
+      - sysname {{ name }}
+      - sys-nas {{ name }}
+      - network broadcast disable
+      - mobility group domain {{ mobility_group }}
+      - network rf-network-name {{ rf_group }}
+      - ipv6 disable
+      - network http-proxy Port 80
+      - network usertimeout 300
+      - network arptimeout 300
+      - custom-web radiusauth pap
+      - network dns serverip 0.0.0.0
+      - network fast-ssid-change enable
+      - network link-local-bridging disable
+      - network ap-fallback disable

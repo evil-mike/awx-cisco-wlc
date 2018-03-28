@@ -1,0 +1,7 @@
+---
+- name: Configure Trap Receivers
+  aireos_config:
+    lines:
+      - snmp trapreceiver mode enable Trap Receiver
+      - snmp trapreceiver mode enable {{ cw_pi }}
+      - snmp trapreceiver mode enable {{ kdc_pi }}

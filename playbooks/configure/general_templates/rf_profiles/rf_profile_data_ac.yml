@@ -1,0 +1,41 @@
+---
+- name: Configure RF-Profile Data-AC
+  aireos_config:
+    lines:
+      - rf-profile create 802.11a Data-AC
+      - rf-profile channel add 36 Data-AC
+      - rf-profile channel add 40 Data-AC
+      - rf-profile channel add 44 Data-AC
+      - rf-profile channel add 48 Data-AC
+      - rf-profile channel add 52 Data-AC
+      - rf-profile channel add 56 Data-AC
+      - rf-profile channel add 60 Data-AC
+      - rf-profile channel add 64 Data-AC
+      - rf-profile channel delete 100 Data-AC
+      - rf-profile channel delete 104 Data-AC
+      - rf-profile channel delete 108 Data-AC
+      - rf-profile channel delete 112 Data-AC
+      - rf-profile channel delete 116 Data-AC
+      - rf-profile channel delete 120 Data-AC
+      - rf-profile channel delete 124 Data-AC
+      - rf-profile channel delete 128 Data-AC
+      - rf-profile channel delete 132 Data-AC
+      - rf-profile channel delete 136 Data-AC
+      - rf-profile channel delete 140 Data-AC
+      - rf-profile channel delete 144 Data-AC
+      - rf-profile channel add 149 Data-AC
+      - rf-profile channel add 153 Data-AC
+      - rf-profile channel add 157 Data-AC
+      - rf-profile channel add 161 Data-AC
+      - rf-profile channel chan-width 40 Data-AC
+      - rf-profile tx-power-min 11 Data-AC
+      - rf-profile data-rates 802.11a disabled 6 Data-AC
+      - rf-profile data-rates 802.11a disabled 9 Data-AC
+      - rf-profile data-rates 802.11a disabled 12 Data-AC
+      - rf-profile data-rates 802.11a disabled 18 Data-AC
+      - rf-profile data-rates 802.11a mandatory 24 Data-AC
+      - rf-profile data-rates 802.11a supported 36 Data-AC
+      - rf-profile data-rates 802.11a supported 48 Data-AC
+      - rf-profile data-rates 802.11a supported 54 Data-AC
+      - rf-profile coverage voice -75 Data-AC
+      - rf-profile tx-power-max 17 Data-AC

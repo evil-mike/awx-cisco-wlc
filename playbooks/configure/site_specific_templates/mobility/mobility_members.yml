@@ -1,0 +1,9 @@
+---
+- name: Configure Mobility Members
+  aireos_config:
+    lines:
+      - mobility group member add {{ item.value }}
+  with_dict: "{{ all_mobility_members }}"
+  when: 'item.key in mobility_members'
+  loop_control:
+    label: "{{ item.key }}"

@@ -1,0 +1,217 @@
+---
+- name: Configure Sponsored-Guest ACLs
+  aireos_config:
+    lines:
+      - flexconnect acl create Sponsored-Guest-Redirect
+      - acl create Sponsored-Guest-Redirect
+      - acl create Sponsored-Guest-ACL
+      - flexconnect acl rule add Sponsored-Guest-Redirect 1
+      - flexconnect acl rule destination address Sponsored-Guest-Redirect 1 172.23.89.89 255.255.255.255
+      - flexconnect acl rule action Sponsored-Guest-Redirect 1 permit
+      - flexconnect acl rule add Sponsored-Guest-Redirect 2
+      - flexconnect acl rule source address Sponsored-Guest-Redirect 2 172.23.89.89 255.255.255.255
+      - flexconnect acl rule action Sponsored-Guest-Redirect 2 permit
+      - flexconnect acl rule add Sponsored-Guest-Redirect 3
+      - flexconnect acl rule source port range Sponsored-Guest-Redirect 3 68 68
+      - flexconnect acl rule destination port range Sponsored-Guest-Redirect 3 67 67
+      - flexconnect acl rule action Sponsored-Guest-Redirect 3 permit
+      - flexconnect acl rule protocol Sponsored-Guest-Redirect 3 17
+      - flexconnect acl rule add Sponsored-Guest-Redirect 4
+      - flexconnect acl rule source port range Sponsored-Guest-Redirect 4 67 67
+      - flexconnect acl rule destination port range Sponsored-Guest-Redirect 4 68 68
+      - flexconnect acl rule action Sponsored-Guest-Redirect 4 permit
+      - flexconnect acl rule protocol Sponsored-Guest-Redirect 4 17
+      - flexconnect acl rule add Sponsored-Guest-Redirect 5
+      - flexconnect acl rule destination port range Sponsored-Guest-Redirect 5 53 53
+      - flexconnect acl rule action Sponsored-Guest-Redirect 5 permit
+      - flexconnect acl rule protocol Sponsored-Guest-Redirect 5 17
+      - flexconnect acl rule add Sponsored-Guest-Redirect 6
+      - flexconnect acl rule source port range Sponsored-Guest-Redirect 6 53 53
+      - flexconnect acl rule action Sponsored-Guest-Redirect 6 permit
+      - flexconnect acl rule protocol Sponsored-Guest-Redirect 6 17
+      - flexconnect acl rule add Sponsored-Guest-Redirect 7
+      - flexconnect acl rule add Sponsored-Guest-Redirect 65
+      - flexconnect acl apply Sponsored-Guest-Redirect
+      - acl rule add Sponsored-Guest-Redirect 1
+      - acl rule source address Sponsored-Guest-Redirect 1 10.250.240.0 255.255.240.0
+      - acl rule source port range Sponsored-Guest-Redirect 1 0 65535
+      - acl rule destination address Sponsored-Guest-Redirect 1 172.23.89.89 255.255.255.255
+      - acl rule destination port range Sponsored-Guest-Redirect 1 8443 8443
+      - acl rule direction Sponsored-Guest-Redirect 1 in
+      - acl rule action Sponsored-Guest-Redirect 1 permit
+      - acl rule protocol Sponsored-Guest-Redirect 1 6
+      - acl rule add Sponsored-Guest-Redirect 2
+      - acl rule source address Sponsored-Guest-Redirect 2 172.23.89.89 255.255.255.255
+      - acl rule source port range Sponsored-Guest-Redirect 2 8443 8443
+      - acl rule destination address Sponsored-Guest-Redirect 2 10.250.240.0 255.255.240.0
+      - acl rule destination port range Sponsored-Guest-Redirect 2 0 65535
+      - acl rule direction Sponsored-Guest-Redirect 2 out
+      - acl rule action Sponsored-Guest-Redirect 2 permit
+      - acl rule protocol Sponsored-Guest-Redirect 2 6
+      - acl rule add Sponsored-Guest-Redirect 3
+      - acl rule source address Sponsored-Guest-Redirect 3 10.250.240.0 255.255.240.0
+      - acl rule source port range Sponsored-Guest-Redirect 3 0 65535
+      - acl rule destination address Sponsored-Guest-Redirect 3 172.23.89.118 255.255.255.255
+      - acl rule destination port range Sponsored-Guest-Redirect 3 8443 8443
+      - acl rule direction Sponsored-Guest-Redirect 3 in
+      - acl rule action Sponsored-Guest-Redirect 3 permit
+      - acl rule protocol Sponsored-Guest-Redirect 3 6
+      - acl rule add Sponsored-Guest-Redirect 4
+      - acl rule source address Sponsored-Guest-Redirect 4 172.23.89.118 255.255.255.255
+      - acl rule source port range Sponsored-Guest-Redirect 4 8443 8443
+      - acl rule destination address Sponsored-Guest-Redirect 4 10.250.240.0 255.255.240.0
+      - acl rule destination port range Sponsored-Guest-Redirect 4 0 65535
+      - acl rule direction Sponsored-Guest-Redirect 4 out
+      - acl rule action Sponsored-Guest-Redirect 4 permit
+      - acl rule protocol Sponsored-Guest-Redirect 4 6
+      - acl rule add Sponsored-Guest-Redirect 5
+      - acl rule source address Sponsored-Guest-Redirect 5 10.250.240.0 255.255.240.0
+      - acl rule source port range Sponsored-Guest-Redirect 5 0 65535
+      - acl rule destination address Sponsored-Guest-Redirect 5 10.248.168.19 255.255.255.255
+      - acl rule destination port range Sponsored-Guest-Redirect 5 8443 8443
+      - acl rule direction Sponsored-Guest-Redirect 5 in
+      - acl rule action Sponsored-Guest-Redirect 5 permit
+      - acl rule protocol Sponsored-Guest-Redirect 5 6
+      - acl rule add Sponsored-Guest-Redirect 6
+      - acl rule source address Sponsored-Guest-Redirect 6 10.248.168.19 255.255.255.255
+      - acl rule source port range Sponsored-Guest-Redirect 6 8443 8443
+      - acl rule destination address Sponsored-Guest-Redirect 6 10.250.240.0 255.255.240.0
+      - acl rule destination port range Sponsored-Guest-Redirect 6 0 65535
+      - acl rule direction Sponsored-Guest-Redirect 6 out
+      - acl rule action Sponsored-Guest-Redirect 6 permit
+      - acl rule protocol Sponsored-Guest-Redirect 6 6
+      - acl rule add Sponsored-Guest-Redirect 7
+      - acl rule source address Sponsored-Guest-Redirect 7 10.250.240.0 255.255.240.0
+      - acl rule source port range Sponsored-Guest-Redirect 7 0 65535
+      - acl rule destination address Sponsored-Guest-Redirect 7 142.71.45.243 255.255.255.255
+      - acl rule destination port range Sponsored-Guest-Redirect 7 8443 8443
+      - acl rule direction Sponsored-Guest-Redirect 7 in
+      - acl rule action Sponsored-Guest-Redirect 7 permit
+      - acl rule protocol Sponsored-Guest-Redirect 7 6
+      - acl rule add Sponsored-Guest-Redirect 8
+      - acl rule source address Sponsored-Guest-Redirect 8 172.23.89.89 255.255.255.255
+      - acl rule source port range Sponsored-Guest-Redirect 8 8443 8443
+      - acl rule destination port range Sponsored-Guest-Redirect 8 0 65535
+      - acl rule direction Sponsored-Guest-Redirect 8 out
+      - acl rule action Sponsored-Guest-Redirect 8 permit
+      - acl rule protocol Sponsored-Guest-Redirect 8 6
+      - acl rule add Sponsored-Guest-Redirect 9
+      - acl rule source address Sponsored-Guest-Redirect 9 10.250.240.0 255.255.240.0
+      - acl rule source port range Sponsored-Guest-Redirect 9 0 65535
+      - acl rule destination address Sponsored-Guest-Redirect 9 10.26.116.50 255.255.255.255
+      - acl rule destination port range Sponsored-Guest-Redirect 9 53 53
+      - acl rule direction Sponsored-Guest-Redirect 9 in
+      - acl rule action Sponsored-Guest-Redirect 9 permit
+      - acl rule protocol Sponsored-Guest-Redirect 9 17
+      - acl rule add Sponsored-Guest-Redirect 10
+      - acl rule source address Sponsored-Guest-Redirect 10 10.26.116.50 255.255.255.255
+      - acl rule source port range Sponsored-Guest-Redirect 10 53 53
+      - acl rule destination address Sponsored-Guest-Redirect 10 10.250.240.0 255.255.240.0
+      - acl rule destination port range Sponsored-Guest-Redirect 10 0 65535
+      - acl rule direction Sponsored-Guest-Redirect 10 out
+      - acl rule action Sponsored-Guest-Redirect 10 permit
+      - acl rule protocol Sponsored-Guest-Redirect 10 17
+      - acl rule add Sponsored-Guest-Redirect 11
+      - acl rule source address Sponsored-Guest-Redirect 11 10.250.240.0 255.255.240.0
+      - acl rule source port range Sponsored-Guest-Redirect 11 0 65535
+      - acl rule destination address Sponsored-Guest-Redirect 11 10.26.116.34 255.255.255.255
+      - acl rule destination port range Sponsored-Guest-Redirect 11 53 53
+      - acl rule direction Sponsored-Guest-Redirect 11 in
+      - acl rule action Sponsored-Guest-Redirect 11 permit
+      - acl rule protocol Sponsored-Guest-Redirect 11 17
+      - acl rule add Sponsored-Guest-Redirect 12
+      - acl rule source address Sponsored-Guest-Redirect 12 10.26.116.34 255.255.255.255
+      - acl rule source port range Sponsored-Guest-Redirect 12 53 53
+      - acl rule destination address Sponsored-Guest-Redirect 12 10.250.240.0 255.255.240.0
+      - acl rule destination port range Sponsored-Guest-Redirect 12 0 65535
+      - acl rule direction Sponsored-Guest-Redirect 12 out
+      - acl rule action Sponsored-Guest-Redirect 12 permit
+      - acl rule protocol Sponsored-Guest-Redirect 12 17
+      - acl rule add Sponsored-Guest-Redirect 13
+      - acl rule source address Sponsored-Guest-Redirect 13 10.250.240.0 255.255.240.0
+      - acl rule source port range Sponsored-Guest-Redirect 13 0 65535
+      - acl rule destination address Sponsored-Guest-Redirect 13 72.21.91.29 255.255.255.255
+      - acl rule destination port range Sponsored-Guest-Redirect 13 80 80
+      - acl rule direction Sponsored-Guest-Redirect 13 in
+      - acl rule action Sponsored-Guest-Redirect 13 permit
+      - acl rule protocol Sponsored-Guest-Redirect 13 6
+      - acl rule add Sponsored-Guest-Redirect 14
+      - acl rule source address Sponsored-Guest-Redirect 14 72.21.91.29 255.255.255.255
+      - acl rule source port range Sponsored-Guest-Redirect 14 80 80
+      - acl rule destination address Sponsored-Guest-Redirect 14 10.250.240.0 255.255.240.0
+      - acl rule destination port range Sponsored-Guest-Redirect 14 0 65535
+      - acl rule direction Sponsored-Guest-Redirect 14 out
+      - acl rule action Sponsored-Guest-Redirect 14 permit
+      - acl rule protocol Sponsored-Guest-Redirect 14 6
+      - acl rule add Sponsored-Guest-Redirect 15
+      - acl rule source address Sponsored-Guest-Redirect 15 10.250.240.0 255.255.240.0
+      - acl rule source port range Sponsored-Guest-Redirect 15 0 65535
+      - acl rule destination address Sponsored-Guest-Redirect 15 66.225.197.197 255.255.255.255
+      - acl rule destination port range Sponsored-Guest-Redirect 15 80 80
+      - acl rule direction Sponsored-Guest-Redirect 15 in
+      - acl rule action Sponsored-Guest-Redirect 15 permit
+      - acl rule protocol Sponsored-Guest-Redirect 15 6
+      - acl rule add Sponsored-Guest-Redirect 16
+      - acl rule source address Sponsored-Guest-Redirect 16 66.225.197.197 255.255.255.255
+      - acl rule source port range Sponsored-Guest-Redirect 16 80 80
+      - acl rule destination address Sponsored-Guest-Redirect 16 10.250.240.0 255.255.240.0
+      - acl rule destination port range Sponsored-Guest-Redirect 16 0 65535
+      - acl rule direction Sponsored-Guest-Redirect 16 out
+      - acl rule action Sponsored-Guest-Redirect 16 permit
+      - acl rule protocol Sponsored-Guest-Redirect 16 6
+      - acl rule add Sponsored-Guest-Redirect 17
+      - acl rule source port range Sponsored-Guest-Redirect 17 68 68
+      - acl rule destination port range Sponsored-Guest-Redirect 17 67 67
+      - acl rule direction Sponsored-Guest-Redirect 17 in
+      - acl rule action Sponsored-Guest-Redirect 17 permit
+      - acl rule protocol Sponsored-Guest-Redirect 17 17
+      - acl rule add Sponsored-Guest-Redirect 18
+      - acl rule source port range Sponsored-Guest-Redirect 18 67 67
+      - acl rule destination port range Sponsored-Guest-Redirect 18 68 68
+      - acl rule direction Sponsored-Guest-Redirect 18 out
+      - acl rule action Sponsored-Guest-Redirect 18 permit
+      - acl rule protocol Sponsored-Guest-Redirect 18 17
+      - acl rule add Sponsored-Guest-Redirect 19
+      - acl rule source port range Sponsored-Guest-Redirect 19 0 65535
+      - acl rule destination port range Sponsored-Guest-Redirect 19 0 65535
+      - acl rule add Sponsored-Guest-Redirect 65
+      - acl rule source port range Sponsored-Guest-Redirect 65 0 65535
+      - acl rule destination port range Sponsored-Guest-Redirect 65 0 65535
+      - acl rule add Sponsored-Guest-ACL 1
+      - acl rule source port range Sponsored-Guest-ACL 1 0 65535
+      - acl rule destination address Sponsored-Guest-ACL 1 172.23.89.89 255.255.255.255
+      - acl rule destination port range Sponsored-Guest-ACL 1 0 65535
+      - acl rule action Sponsored-Guest-ACL 1 permit
+      - acl rule add Sponsored-Guest-ACL 2
+      - acl rule source address Sponsored-Guest-ACL 2 172.23.89.89 255.255.255.255
+      - acl rule source port range Sponsored-Guest-ACL 2 0 65535
+      - acl rule destination port range Sponsored-Guest-ACL 2 0 65535
+      - acl rule action Sponsored-Guest-ACL 2 permit
+      - acl rule add Sponsored-Guest-ACL 3
+      - acl rule source port range Sponsored-Guest-ACL 3 0 65535
+      - acl rule destination address Sponsored-Guest-ACL 3 172.23.89.118 255.255.255.255
+      - acl rule destination port range Sponsored-Guest-ACL 3 0 65535
+      - acl rule action Sponsored-Guest-ACL 3 permit
+      - acl rule add Sponsored-Guest-ACL 4
+      - acl rule source address Sponsored-Guest-ACL 4 172.23.89.118 255.255.255.255
+      - acl rule source port range Sponsored-Guest-ACL 4 0 65535
+      - acl rule destination port range Sponsored-Guest-ACL 4 0 65535
+      - acl rule action Sponsored-Guest-ACL 4 permit
+      - acl rule add Sponsored-Guest-ACL 5
+      - acl rule source port range Sponsored-Guest-ACL 5 68 68
+      - acl rule destination port range Sponsored-Guest-ACL 5 67 67
+      - acl rule action Sponsored-Guest-ACL 5 permit
+      - acl rule protocol Sponsored-Guest-ACL 5 17
+      - acl rule add Sponsored-Guest-ACL 6
+      - acl rule source port range Sponsored-Guest-ACL 6 67 67
+      - acl rule destination port range Sponsored-Guest-ACL 6 68 68
+      - acl rule action Sponsored-Guest-ACL 6 permit
+      - acl rule protocol Sponsored-Guest-ACL 6 17
+      - acl rule add Sponsored-Guest-ACL 7
+      - acl rule source port range Sponsored-Guest-ACL 7 0 65535
+      - acl rule destination port range Sponsored-Guest-ACL 7 0 65535
+      - acl rule add Sponsored-Guest-ACL 65
+      - acl rule source port range Sponsored-Guest-ACL 65 0 65535
+      - acl rule destination port range Sponsored-Guest-ACL 65 0 65535
+      - acl apply Sponsored-Guest-Redirect
+      - acl apply Sponsored-Guest-ACL

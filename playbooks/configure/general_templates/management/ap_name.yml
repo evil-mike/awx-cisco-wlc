@@ -1,0 +1,5 @@
+---
+- name: Configure AP Global Credentials
+  aireos_config:
+    lines:
+      - ap mgmtuser add username {{ ap_name }} password {{ ap_pw }} secret {{ ap_pw }} Global

@@ -1,0 +1,13 @@
+---
+- name: Configure RRM for 802.11a (Advanced Global)
+  aireos_config:
+    lines:
+      - advanced 802.11a channel foreign enable
+      - advanced 802.11a channel load disable
+      - advanced 802.11a channel noise enable
+      - advanced 802.11a channel device disable
+      - advanced 802.11a channel dca sensitivity 1
+      - advanced 802.11a channel dca anchor-time 0
+      - advanced 802.11a channel dca interval 0
+      - advanced 802.11a channel cleanair-event enable
+      - advanced 802.11a channel cleanair-event sensitivity Medium

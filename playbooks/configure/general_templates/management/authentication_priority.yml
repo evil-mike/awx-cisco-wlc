@@ -1,0 +1,5 @@
+---
+- name: Configure Authentication Priority
+  aireos_config:
+    lines:
+      - aaa auth mgmt local tacacs

@@ -1,0 +1,9 @@
+---
+- name: Configure Multicast Address and Global Multicast Settings
+  aireos_config:
+    lines:
+      - network multicast global disable
+      - network multicast mld snooping disable
+      - network multicast igmp snooping disable
+    before:
+      - network multicast mode multicast {{ multicast }}

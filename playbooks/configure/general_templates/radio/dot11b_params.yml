@@ -1,0 +1,15 @@
+---
+- name: Configure 802.11b Network Global Settings
+  aireos_config:
+    lines:
+      - 802.11b preamble long
+      - 802.11b rate disable 1
+      - 802.11b rate disable 2
+      - 802.11b rate disable 5.5
+      - 802.11b rate disable 6
+      - 802.11b rate disable 9
+      - 802.11b enable network
+      - advanced 802.11b monitor Channel-list all
+      - advanced 802.11b Ccx location-meas global disable 60
+      - 802.11b fragmentation 2346
+      - 802.11b max-clients 200
